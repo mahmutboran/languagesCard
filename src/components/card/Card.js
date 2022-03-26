@@ -1,11 +1,9 @@
 
-
+import { useState } from "react";
 
 const Card = (categories)=>{
     
-const click =(e)=>{
-    console.log(e.target)
-}
+    const [showLogo,setShowLogo] = useState(true)
 
     return(
         <div onClick={click} className="card" >
@@ -17,6 +15,10 @@ const click =(e)=>{
 
             <p>{categories.name}</p>
             </div>
+
+            <ul >
+                <li>{categories.options}</li>
+            </ul>
 
         </div>
     )
