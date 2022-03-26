@@ -1,4 +1,4 @@
-import { categories } from "../helper/data"
+
 
 
 const Card = (categories)=>{
