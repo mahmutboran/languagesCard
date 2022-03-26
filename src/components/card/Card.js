@@ -1,26 +1,47 @@
 
 import { useState } from "react";
 
-const Card = (categories)=>{
+const Card = (categories) => {
+
+    const [showLogo, setShowLogo] = useState(true)
+   console.log( showLogo )
+
     
-    const [showLogo,setShowLogo] = useState(true)
 
-    return(
-        <div onClick={click} className="card" >
+    
+ 
+ 
+    return (
+        <div onClick={() => {
+            setShowLogo(!showLogo) 
+            setTimeout(()=>{
+                setShowLogo(showLogo)
+            },2000)
+            console.log( showLogo )
+        }} 
+            className="card" >
+            {showLogo ? (  
             <div>
-
+            <div>
             <img src={categories.img} alt="img" />
             </div>
             <div>
-
             <p>{categories.name}</p>
             </div>
+            </div>
+            ) :
 
-            <ul >
-                <li>{categories.options}</li>
-            </ul>
+                (<ul >{
+
+                    categories.options.map((opt, i) => {
+
+                        return <li key={i}>{opt}</li>
+                    })
+
+                }
+                </ul>)}
 
         </div>
-    )
-}
+    );
+};
 export default Card
